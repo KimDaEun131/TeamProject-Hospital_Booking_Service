@@ -13,7 +13,7 @@ using namespace std;
 #define DAY 6
 #define DATE 6
 
-class Doctor{
+class Doctor {
 public:
 	Doctor();
 	void setDc(string dcName) { this->dcName = dcName; }
@@ -22,6 +22,8 @@ public:
 	string getDc() { return dcName; }
 	void cancel_sche(string s);
 	void display_Schedule();
+	void display_Schedule_dayver(int num);
+	int search_Schedule(int num);
 private:
 	string dcName;
 	string schedule[6][6];
@@ -36,6 +38,7 @@ public:
 	void setDept(string deptName) { this->deptName = deptName; }
 	string getDept() { return deptName; }
 	void set_reservation();
+	void set_reservation_sc();
 	void chk_reservation();
 	void cancel_reservation();
 	int inputDc();
@@ -49,7 +52,7 @@ private:
 	string deptName;
 };
 
-class Hospital{
+class Hospital {
 public:
 	Hospital();
 	~Hospital() { delete[]dept; }
@@ -59,6 +62,7 @@ public:
 	void activation_chk(int num);
 	void activation_cancel(int num);
 	void display_deptList();
+	void activation_booking2(int num);
 private:
 	Department* dept;
 	vector<string>vec_dept;
@@ -68,11 +72,11 @@ class Console {
 public:
 	Console() { hp = new Hospital(); }
 	~Console() { delete hp; }
-	void execute_prog();//½Ã½ºÅÛ ½ÇÇà
-	static int select_menu();//¸Ş´º ¼±ÅÃ
-	static int select_dept();//Áø·áºÎ¼­ ¼±ÅÃ
-	static int select_method();//¿¹¾à ¹æ½Ä ¼±ÅÃ
-	static void gotoxy(int x, int y);//ÄÜ¼ÖÈ­¸é ÁÂÇ¥ Á¶ÀÛ
+	void execute_prog();//ì‹œìŠ¤í…œ ì‹¤í–‰
+	static int select_menu();//ë©”ë‰´ ì„ íƒ
+	static int select_dept();//ì§„ë£Œë¶€ì„œ ì„ íƒ
+	static int select_method();//ì˜ˆì•½ ë°©ì‹ ì„ íƒ
+	static void gotoxy(int x, int y);//ì½˜ì†”í™”ë©´ ì¢Œí‘œ ì¡°ì‘
 private:
 	Hospital* hp;
 };
